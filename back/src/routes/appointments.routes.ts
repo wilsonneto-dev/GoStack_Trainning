@@ -4,12 +4,19 @@ import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 const appointmentsRouter = Router();
 
+const appointmentsRepository = new AppointmentsRepository();
+
+appointmentsRouter.get('/', (request, response) => {
+  const appointments = appointmentsRepository.all();
+  return response.json(appointments);
+});
+
 appointmentsRouter.post('/', (request, response) => {
   const { provider, date } = request.body;
 
-  const parsedDate = startOfHour(parseISO(date));
+  const parsedDate = parseISO(date);
+  const appointmentDate = startOfHour(parsedDate);
 
-  const appointmentsRepository = new AppointmentsRepository();
   const thereIsAppointmentInSameDate = appointmentsRepository.findByDate(
     parsedDate,
   );
@@ -19,7 +26,10 @@ appointmentsRouter.post('/', (request, response) => {
       .status(400)
       .json({ message: 'This appointment is already booked' });
 
-  const appointment = appointmentsRepository.create(provider, parsedDate);
+  const appointment = appointmentsRepository.create({
+    provider,
+    date: parsedDate,
+  });
 
   return response.json(appointment);
 });

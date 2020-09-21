@@ -1,0 +1,3 @@
+class CreateAppointmentService {
+  public execute() {}
+}
