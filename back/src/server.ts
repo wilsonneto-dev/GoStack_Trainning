@@ -14,5 +14,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen(3000, () => {
-  console.log('running on https://localhost:3000/');
+  console.log('running on http://localhost:3000/');
 });
