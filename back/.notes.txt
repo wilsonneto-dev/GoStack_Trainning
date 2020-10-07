@@ -1,7 +1,1 @@
-- next: back 2 -> bd -> criando tabela agendamentos
-
-Banco de dados:
-- docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-
-Criar migration:
-npm run typeorm -- migration:create --name CreateAppointments
+Finished migrations class
