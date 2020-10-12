@@ -1,1 +1,1 @@
-Finished migrations class
+next: users
