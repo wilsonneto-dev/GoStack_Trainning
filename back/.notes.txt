@@ -1,1 +1,6 @@
 next: users
+
++ testes
++ validações de parametros (joy + celebrate)
++ refresh token
++ 

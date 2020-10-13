@@ -1,25 +1,18 @@
 import {
-  Column,
   Entity,
+  Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-import User from './User';
 
-@Entity('appointments')
-class Appointment {
+@Entity('users')
+class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'provider_id' })
-  providerId: string;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'provider_id' })
-  provider: User;
+  @Column()
+  name: string;
 
   @Column('timestamp with time zone')
   date: Date;
@@ -31,4 +24,4 @@ class Appointment {
   updatetAt: Date;
 }
 
-export default Appointment;
+export default User;
