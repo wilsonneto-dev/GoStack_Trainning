@@ -10,7 +10,7 @@ app.use(router);
 
 app.get('/', (request, response) => {
   const a = { t: 2 };
-  response.json({ ok: true });
+  response.json({ ok: true, a });
 });
 
 app.listen(3000, () => {
